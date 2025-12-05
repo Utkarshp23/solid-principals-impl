@@ -4,11 +4,11 @@ import java.util.List;
 
 public class OrderHandler {
 
-    private final OrderRepository orderRepository;
+    private final UpdateOrderRepository repository;
     private final List<NotificationService> notificationServices;
 
-    public OrderHandler(OrderRepository orderRepository, List<NotificationService> notificationServices) {
-        this.orderRepository = orderRepository;
+    public OrderHandler(UpdateOrderRepository repository, List<NotificationService> notificationServices) {
+        this.repository = repository;
         this.notificationServices = notificationServices;
     }
 
@@ -19,7 +19,7 @@ public class OrderHandler {
         }
 
         // Save
-        orderRepository.save(order);
+        repository.save(order);
 
         // Notify
         notificationServices.stream()
