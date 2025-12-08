@@ -21,6 +21,7 @@ public class LambdaLevel4_MethodRefs {
 
         List<String> output2 = names.stream()
                                     .sorted(String::compareToIgnoreCase).collect(Collectors.toList());
+                                    // names.sort(String::compareToIgnoreCase);
         System.out.println(output2);
 
         BiFunction<Integer,Integer,Integer> adder =  Calculator::add;

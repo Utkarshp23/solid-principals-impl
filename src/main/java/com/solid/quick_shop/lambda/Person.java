@@ -14,4 +14,12 @@ public class Person {
         // TODO Auto-generated method stub
         return "Person: [name:"+name+",age:"+age+"]";
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getAge(){
+        return age;
+    }
 }

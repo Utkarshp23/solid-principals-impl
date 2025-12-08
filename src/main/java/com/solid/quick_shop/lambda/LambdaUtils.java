@@ -1,5 +1,6 @@
 package com.solid.quick_shop.lambda;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
 public class LambdaUtils {
@@ -11,7 +12,7 @@ public class LambdaUtils {
         T output = action.get();
 
         long ems = System.currentTimeMillis();
-
+        System.out.println("Finished: "+label + " in "+ (ems-sms) +" ms");
         return output;
 
     }
@@ -42,5 +43,18 @@ public class LambdaUtils {
         };
 
         measureTime("Targets", suplly);
+
+
+        AtomicInteger counter = new AtomicInteger(0);
+        Runnable r = ()->{
+            int attempt = counter.incrementAndGet();
+            if(attempt<=2) {
+                throw new RuntimeException();
+            }
+            System.out.println("Run successful!!");
+           
+        };
+
+        retry(3, r);
     }
 }
