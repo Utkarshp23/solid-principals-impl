@@ -51,12 +51,6 @@ public class DsExe {
 
         Map<Integer,Integer> map = new HashMap<>();
 
-        // for(int i=0;i<n;i++){
-        //     System.out.println(map);
-        //     map.put(nums[i], i);
-            
-        // }
-
         for(int i=0;i<n;i++){
             System.out.println(map);
             if(map.containsKey(target-nums[i])){
